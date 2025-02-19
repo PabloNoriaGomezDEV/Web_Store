@@ -1,0 +1,76 @@
+/* Estilos generales para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #4B593D; /* Color de fondo en la paleta base */
+    color: #fff; /* Texto blanco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Asegura que el contenido esté centrado verticalmente */
+}
+
+/* Estilo para el formulario */
+form {
+    background-color: #B1C48D; /* Fondo del formulario */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box; /* Asegura que padding no afecte el ancho */
+}
+
+/* Títulos y etiquetas */
+h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Estilo para los campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%; /* Los campos ocupan todo el ancho disponible */
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box; /* Asegura que padding no afecte el tamaño */
+}
+
+/* Estilo para el botón de enviar */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4B593D; /* Color de fondo del botón */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #3c472a; /* Cambio de color en hover */
+}
+
+/* Estilo para el enlace de redirección a login */
+p {
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+}
+
+a {
+    color: #4B593D;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
