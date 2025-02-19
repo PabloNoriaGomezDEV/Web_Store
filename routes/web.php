@@ -19,6 +19,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');  // Asegúrate de que esta vista exista en resources/views/dashboard.blade.php
 })->middleware('auth');
 
+Route::get('/welcome2', function () {
+    return view('welcome2');
+});
 // Ruta para logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
