@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;  // Asegúrate de importar esto
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -40,11 +40,9 @@ class RegisterController extends Controller
         ]);
 
         // Iniciar sesión automáticamente después de registrarse
-        Auth::login($user); // Corregido aquí
+        Auth::login($user);
 
-        // Redirigir al dashboard o a la página que prefieras
-        return redirect()->route('dashboard');
+        // Redirigir a la página principal
+        return redirect('/');
     }
 }
-
-
