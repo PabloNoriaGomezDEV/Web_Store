@@ -33,7 +33,7 @@ class AuthController extends Controller
             Auth::login($user);
 
             // Redirigir al dashboard
-            return redirect('/');
+            return redirect()->route('perfil');
         } else {
             // Si las credenciales son incorrectas, volver a mostrar el formulario con un mensaje de error
             return back()->withErrors(['email' => 'Correo o contraseña incorrectos.']);
@@ -46,8 +46,7 @@ class AuthController extends Controller
         // Cerrar la sesión del usuario
         Auth::logout();
 
-        // Redirigir al formulario de login
-        return redirect()->route('login');
+        return redirect()->route('/');
     }
 }
 

@@ -3,22 +3,30 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Auth\RegisterController;
+
+// Página principal
 Route::get('/', function () {
-    return view('welcome');  // Asegúrate de que la vista 'welcome.blade.php' exista en 'resources/views/'
-});
-// Ruta para el login
+    return view('welcome');
+})->name('/');
+
+// Login
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
-// Ruta para el registro
+// Registro
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 
-// Ruta para el dashboard, con middleware de autenticación
+// Dashboard
 Route::get('/dashboard', function () {
-    return view('dashboard');  // Asegúrate de que esta vista exista en resources/views/dashboard.blade.php
-})->middleware('auth');
+    return view('dashboard');
+})->middleware('auth')->name('dashboard');
 
-// Ruta para logout
+// Perfil del usuario
+Route::get('/perfil', function () {
+    return view('perfil');  // Asegúrate de que 'perfil.blade.php' existe en 'resources/views/'
+})->middleware('auth')->name('perfil');
+
+// Logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
