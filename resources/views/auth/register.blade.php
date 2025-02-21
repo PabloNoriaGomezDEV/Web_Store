@@ -1,13 +1,11 @@
-<!-- resources/views/auth/register.blade.php -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <!-- Cargar el archivo auth.css -->
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 </head>
 <form action="{{ route('register') }}" method="POST">
-    @csrf  <!-- Directiva para CSRF -->
+    @csrf 
 
     <label for="nombre">Nombre</label>
     <input type="text" name="nombre" value="{{ old('nombre') }}" required>
@@ -23,7 +21,6 @@
 
     <button type="submit">Registrar</button>
 
-    <!-- Mostrar errores si los datos no son correctos -->
     @if ($errors->any())
         <div>
             <ul>
