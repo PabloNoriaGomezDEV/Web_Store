@@ -125,7 +125,7 @@
     <!-- Footer Section -->
     <footer class="bg-dark text-white text-center py-4">
         <p>&copy; 2025 Clothing Store. All Rights Reserved.</p>
-        <p><a href="mailto:contact@clothingstore.com" class="text-white">Contact Us</a></p>
+        <p><a href="contact@clothingstore.com" class="text-white">Contact Us</a></p>
     </footer>
 
     <script src="{{ asset('js/script.js') }}"></script> <!-- Laravel asset helper -->

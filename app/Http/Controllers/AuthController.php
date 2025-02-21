@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -32,8 +31,8 @@ class AuthController extends Controller
             // Si la contraseña es correcta, iniciar sesión
             Auth::login($user);
 
-            // Redirigir al dashboard
-            return redirect('/');
+            // Redirigir a la página de bienvenida después del login
+            return redirect()->route('welcome2');
         } else {
             // Si las credenciales son incorrectas, volver a mostrar el formulario con un mensaje de error
             return back()->withErrors(['email' => 'Correo o contraseña incorrectos.']);
@@ -46,8 +45,7 @@ class AuthController extends Controller
         // Cerrar la sesión del usuario
         Auth::logout();
 
-        // Redirigir al formulario de login
-        return redirect()->route('login');
+        // Redirigir a la página de bienvenida después de hacer logout
+        return redirect()->route('welcome');
     }
 }
-
