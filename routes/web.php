@@ -22,11 +22,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth')->name('dashboard');
 
-// Perfil del usuario
-Route::get('/perfil', function () {
-    return view('perfil');  // Asegúrate de que 'perfil.blade.php' existe en 'resources/views/'
-})->middleware('auth')->name('perfil');
-
-// Logout
+Route::get('/welcome2', function () {
+    return view('welcome2');
+});
+// Ruta para logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
