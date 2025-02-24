@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">  <!-- Usamos asset() para los archivos públicos -->
+    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
     <title>Log In</title>
 </head>
 <body>
-    <!-- Formulario de login con la ruta a la que se envían los datos -->
-    <form id="loginForm" method="POST" action="{{ route('login') }}">  <!-- Usamos la ruta de login de Laravel -->
-        @csrf  <!-- Token CSRF necesario para proteger el formulario -->
+    <form id="loginForm" method="POST" action="{{ route('login') }}">
+        @csrf 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br><br>
 
