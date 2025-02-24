@@ -7,6 +7,10 @@
     <title>Log In</title>
 </head>
 <body>
+<img src="{{ asset('/images/logo.png') }}" alt="Logo" class="logo">
+<video autoplay muted loop playsinline id="video-fondo">
+<source src="https://res.cloudinary.com/dczjloaiy/video/upload/v1740409933/58374fbaa3c57b06bf47bee48df83343_pwmy61.mp4" type="video/mp4">
+</video>
     <form id="loginForm" method="POST" action="{{ route('login') }}">
         @csrf 
         <label for="email">Email:</label>

@@ -9,17 +9,48 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh; /* Asegura que el contenido esté centrado verticalmente */
+    overflow: hidden; /* Evita el desplazamiento si el video es más grande que la pantalla */
+    position: relative; /* Necesario para posicionar el video de fondo */
+}
+
+/* Estilo para el video de fondo */
+#video-fondo {
+    position: absolute; /* Fija el video en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: none; 
+    z-index: -1; /* Coloca el video detrás del contenido */
+}
+
+/* Contenedor flexible para la imagen y el formulario */
+.container {
+    display: flex; /* Usar flexbox para alinear la imagen y el formulario */
+    align-items: center; /* Centrar verticalmente */
+    gap: 40px; /* Espacio entre la imagen y el formulario */
+    padding: 20px; /* Espaciado general */
+}
+
+/* Estilos para la imagen */
+.container img {
+    width: 400px; /* Ancho de la imagen */
+    height: auto; /* Mantener la proporción de la imagen */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-left: 20px; /* Mover la imagen un poco a la izquierda */
 }
 
 /* Estilo para el formulario */
 form {
-    background-color: #B1C48D; /* Fondo del formulario */
+    background-color: #b1c48da1; /* Fondo semitransparente */
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
     box-sizing: border-box; /* Asegura que padding no afecte el ancho */
+    position: relative; /* Asegura que el formulario esté por encima del video */
+    z-index: 1;
 }
 
 /* Títulos y etiquetas */
@@ -42,6 +73,32 @@ input[type="password"] {
     color: #333;
     box-sizing: border-box; /* Asegura que padding no afecte el tamaño */
 }
+
+/* Estilos para el logo */
+.logo {
+    position: absolute;
+    top: 5px; /* Más cerca de la parte superior */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px; /* Mucho más pequeño */
+    height: auto;
+    z-index: 2;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3)); /* Sombra sutil para mejor visibilidad */
+    opacity: 0.9; /* Ligera transparencia para un look más elegante */
+}
+
+.logo2 {
+    position: absolute;
+    top: 5px; /* Más cerca de la parte superior */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Mucho más pequeño */
+    height: auto;
+    z-index: 2;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3)); /* Sombra sutil para mejor visibilidad */
+    opacity: 0.9; /* Ligera transparencia para un look más elegante */
+}
+
 
 /* Estilo para el botón de enviar */
 button {
