@@ -16,19 +16,19 @@
             <button id="menuButton" class="border-0 bg-transparent fs-3 text-white">≡</button>
             <div id="menuDropdown" class="d-none position-absolute bg-white border rounded shadow">
                 <ul class="list-unstyled mb-0 p-3">
-                    <li class="fw-bold mb-2">MAN</li>
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Clothing</a></li>
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Accessories</a></li>
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Shoes</a></li>
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Collection</a></li>
-                    <li><a href="#" class="text-decoration-none text-danger">Sales</a></li>
+                <li class="fw-bold mb-2">HOMBRE</li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Ropa</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Accesorios</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Calzado</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Colección</a></li>
+                    <li><a href="#" class="text-decoration-none text-danger">Ofertas</a></li>
                     <br>
-                    <li class="fw-bold mb-2">WOMAN</li>
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Clothing</a></li>
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Accessories</a></li>
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Shoes</a></li>
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Collection</a></li>
-                    <li><a href="#" class="text-decoration-none text-danger">Sales</a></li>
+                    <li class="fw-bold mb-2">MUJER</li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Ropa</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Accesorios</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Calzado</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Colección</a></li>
+                    <li><a href="#" class="text-decoration-none text-danger">Ofertas</a></li>
                 </ul>
             </div>
             
@@ -44,7 +44,7 @@
                         <span class="ms-2 text-white">Bienvenido, {{ Auth::user()->name }}</span>
                         <form action="{{ route('logout') }}" method="POST" class="ms-3">
                             @csrf
-                            <button type="submit" class="btn btn-outline-light btn-sm">Log Out</button>
+                            <button type="submit" class="btn btn-outline-light btn-sm">Cerrar sesión</button>
                         </form>
                     </div>
                 @endauth
@@ -79,7 +79,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 text-start ps-2">
-                    <p class="fw-bold">Follow us!</p>
+                    <p class="fw-bold">¡Síguenos!</p>
                     <div class="d-flex gap-4">
                         <a href="#" class="text-secondary"><i class="bi bi-instagram"></i></a>
                         <a href="#" class="text-secondary"><i class="bi bi-github"></i></a>
