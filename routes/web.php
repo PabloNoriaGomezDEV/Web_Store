@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 // Ruta para la página de bienvenida (cuando no está logueado)
 Route::get('/', function () {
-    return view('welcome');  // Muestra la vista 'welcome.blade.php'
-})->name('welcome');  // Asegúrate de que esta ruta tenga un nombre 'welcome'
+    return view('welcome');
+})->name('welcome');
 
 // Ruta para el login
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -21,8 +21,8 @@ Route::post('/register', [RegisterController::class, 'register']);
 
 // Ruta para la página 'welcome2' después de login
 Route::get('/welcome2', function () {
-    return view('welcome2');  // Esta es la vista que verán los usuarios después de loguearse
-})->middleware('auth')->name('welcome2');  // Solo accesible si el usuario está autenticado
+    return view('welcome2');
+})->middleware('auth')->name('welcome2');
 
 // Ruta para logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

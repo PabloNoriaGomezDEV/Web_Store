@@ -28,7 +28,6 @@ class AuthController extends Controller
 
         // Verificar si el usuario existe y la contraseña es correcta
         if ($user && Hash::check($request->password, $user->password)) {
-            // Si la contraseña es correcta, iniciar sesión
             Auth::login($user);
 
             // Redirigir a la página de bienvenida después del login

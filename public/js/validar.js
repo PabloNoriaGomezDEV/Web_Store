@@ -15,13 +15,13 @@ document.getElementById("registroForm").addEventListener("submit", function(even
         return;
     }
 
-    fetch("php/registro.php", {
+    fetch("php/register.blade.php", {
         method: "POST",
         body: new FormData(document.getElementById("registroForm"))
     })
     .then(response => response.text())
     .then(data => {
-        alert(data); 
+        alert(data);
         document.getElementById("registroForm").reset();
     })
     .catch(error => console.error("Error:", error));

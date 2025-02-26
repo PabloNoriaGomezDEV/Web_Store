@@ -11,7 +11,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #4A5535; 
+            background-color: #4A5535;
         }
         .perfil-container {
             background: #C5D7A6;
@@ -45,11 +45,10 @@
 <body>
     <div class="perfil-container">
         <h1>Bienvenido</h1>
-        
+
         <p><strong>Nombre:</strong> {{ Auth::user()->name }}</p>
         <p><strong>Correo:</strong> {{ Auth::user()->email }}</p>
 
-        <!-- Botón de cerrar sesión -->
         <form action="{{ route('logout') }}" method="POST">
             @csrf
             <button type="submit" class="logout-button">Cerrar sesión</button>

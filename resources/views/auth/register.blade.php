@@ -7,16 +7,13 @@
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 </head>
 <body>
-    <!-- Contenedor para la imagen y el formulario -->
     <div class="container">
-        <!-- Imagen -->
         <img src="https://res.cloudinary.com/dczjloaiy/image/upload/v1740411261/pexels-photo-30865006_xp2kl8.webp" alt="model girl">
 
         <img src="{{ asset('/images/logo.png') }}" alt="Logo" class="logo">
 
-        <!-- Formulario -->
         <form action="{{ route('register') }}" method="POST">
-            @csrf 
+            @csrf
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" value="{{ old('nombre') }}" required>
 
