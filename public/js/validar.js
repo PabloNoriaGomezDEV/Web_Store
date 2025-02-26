@@ -1,28 +1,31 @@
-document.getElementById("registroForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+// validar.js
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
 
-    let nombre = document.getElementById("nombre").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let password = document.getElementById("password").value.trim();
+    loginForm.addEventListener('submit', function(event) {
+        let valid = true;
+        let errorMessage = "";
 
-    if (nombre === "" || email === "" || password === "") {
-        alert("Todos los campos son obligatorios");
-        return;
-    }
+        // Validación del correo electrónico
+        const email = emailInput.value.trim();
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!email || !emailRegex.test(email)) {
+            valid = false;
+            errorMessage += "Por favor, ingresa un correo electrónico válido.\n";
+        }
 
-    if (password.length < 6) {
-        alert("La contraseña debe tener al menos 6 caracteres");
-        return;
-    }
+        // Validación de la contraseña
+        const password = passwordInput.value.trim();
+        if (!password || password.length < 6) {
+            valid = false;
+            errorMessage += "La contraseña debe tener al menos 6 caracteres.\n";
+        }
 
-    fetch("php/register.blade.php", {
-        method: "POST",
-        body: new FormData(document.getElementById("registroForm"))
-    })
-    .then(response => response.text())
-    .then(data => {
-        alert(data);
-        document.getElementById("registroForm").reset();
-    })
-    .catch(error => console.error("Error:", error));
+        if (!valid) {
+            event.preventDefault(); // Detiene el envío del formulario
+            alert(errorMessage); // Muestra el mensaje de error
+        }
+    });
 });

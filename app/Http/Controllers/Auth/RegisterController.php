@@ -27,7 +27,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',  // confirmación de contraseña
         ]);
 
-        // Si la validación falla, regresamos al formulario con los errores
+        // Si la validación falla, regresamos al formulario con los erroresº
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }

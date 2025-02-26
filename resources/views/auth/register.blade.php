@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+    <script src="{{ asset('js/validarRegistro.js') }}" defer></script>
 </head>
 <body>
     <div class="container">
