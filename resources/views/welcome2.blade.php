@@ -90,6 +90,7 @@
                 <div class="col-md-4">
                     <p>&copy; 2025 Quantium. Todos los derechos reservados.</p>
                     <a href="{{ route('settings') }}" class="btn btn-link">Ajustes de Usuario</a>
+                    <a href="{{ route('ubicacion') }}" class="btn btn-primary">Ver Ubicación de la Tienda</a>
                 </div>
                 <div class="col-md-4 text-end pe-2">
                     <img src="images/logo.png" alt="Logo" width="100">

@@ -63,31 +63,36 @@ public function show($id)
 
 public function update(Request $request, $id)
 {
+    // Buscar el usuario por ID
     $user = User::find($id);
 
+    // Si el usuario no existe, devolver un error 404
     if (!$user) {
         return response()->json(['message' => 'Usuario no encontrado'], 404);
     }
 
+    // Validar los datos de entrada
     $request->validate([
-        'name' => 'sometimes|string|max:255',
-        'email' => 'sometimes|email|unique:users,email,' . $id,
-        'password' => 'sometimes|min:6',
+        'name' => 'nullable|string|max:255',
+        'email' => 'nullable|email|unique:users,email,' . $id,
+        'password' => 'nullable|min:6',
     ]);
 
-    if ($request->has('name')) {
+    // Actualizar solo los campos que han sido proporcionados
+    if ($request->filled('name')) {
         $user->name = $request->name;
     }
-    if ($request->has('email')) {
+    if ($request->filled('email')) {
         $user->email = $request->email;
     }
-    if ($request->has('password')) {
+    if ($request->has('password') && $request->password !== null && $request->password !== '') {
         $user->password = Hash::make($request->password);
     }
 
+    // Guardar los cambios en la base de datos
     $user->save();
 
-    // Redirigir a la página de ajustes con un mensaje de éxito
+    // Devolver una respuesta JSON con el usuario actualizado
     return redirect()->route('settings')->with('success', 'Datos actualizados correctamente.');
 }
 

@@ -37,3 +37,7 @@ Route::patch('/users/{id}', [AuthController::class, 'update'])->middleware('auth
 
 // Ruta para eliminar un usuario (DELETE)
 Route::delete('/users/{id}', [AuthController::class, 'destroy'])->middleware('auth')->name('users.destroy');
+
+Route::get('/ubicacion', function () {
+    return view('ubicacion');
+})->name('ubicacion');

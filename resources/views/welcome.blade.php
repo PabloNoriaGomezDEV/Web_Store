@@ -6,7 +6,7 @@
     <title>Quantium</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -31,17 +31,17 @@
                     <li><a href="#" class="text-decoration-none text-danger">Ofertas</a></li>
                 </ul>
             </div>
-            
+
             <div id="logoContainer" class="position-absolute start-50 top-50 translate-middle">
                 <img src="images/logo.png" alt="Logo" class="invert">
             </div>
             <div class="d-flex align-items-center">
                 <div class="ms-3">
-                    <a href="/login" class="text-white text-uppercase fw-bold px-3 py-2 rounded-pill" 
+                    <a href="/login" class="text-white text-uppercase fw-bold px-3 py-2 rounded-pill"
                        style="text-decoration: none; background: rgba(255, 255, 255, 0.2); transition: 0.3s;">
                         Iniciar sesión
                     </a>
-                    <a href="/register" class="text-white text-uppercase fw-bold px-3 py-2 rounded-pill ms-2" 
+                    <a href="/register" class="text-white text-uppercase fw-bold px-3 py-2 rounded-pill ms-2"
                        style="text-decoration: none; background: rgba(255, 255, 255, 0.2); transition: 0.3s;">
                         Registro
                     </a>
@@ -53,7 +53,7 @@
         <div class="row g-0">
             <div class="col-md-6 position-relative">
                 <a href="#">
-                    <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1740163190/xzbnebsbphonab9ivpza.png" 
+                    <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1740163190/xzbnebsbphonab9ivpza.png"
                          alt="mujer" class="img-fluid vh-100 w-100 object-fit-cover">
                     <div class="position-absolute top-50 start-50 translate-middle text-white fw-bold fs-1 text-uppercase">
                         Mujer
@@ -62,7 +62,7 @@
             </div>
             <div class="col-md-6 position-relative">
                 <a href="#">
-                    <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1740163151/muhu5lxkws3tl4u3rr7u.png" 
+                    <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1740163151/muhu5lxkws3tl4u3rr7u.png"
                          alt="hombre" class="img-fluid vh-100 w-100 object-fit-cover">
                     <div class="position-absolute top-50 start-50 translate-middle text-white fw-bold fs-1 text-uppercase">
                         Hombre
@@ -71,7 +71,7 @@
             </div>
         </div>
     </section>
-    
+
     <footer class="bg-white text-secondary text-center py-4 mt-auto">
         <div class="container">
             <div class="row">
@@ -86,6 +86,7 @@
                 </div>
                 <div class="col-md-4">
                     <p>&copy; 2025 Quantium. Todos los derechos reservados.</p>
+                    <a href="{{ route('ubicacion') }}" class="btn btn-primary">Ver Ubicación de la Tienda</a>
                 </div>
                 <div class="col-md-4 text-end pe-2">
                     <img src="images/logo.png" alt="Logo" width="100">
