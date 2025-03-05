@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ApiUsuarioController;
 
 // Página principal
 use Illuminate\Support\Facades\Auth;
@@ -27,3 +28,4 @@ Route::get('/welcome2', function () {
 // Ruta para logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::apiResource('users', ApiUsuarioController::class);
