@@ -63,22 +63,18 @@ public function show($id)
 
 public function update(Request $request, $id)
 {
-    // Buscar el usuario por ID
     $user = User::find($id);
 
-    // Si el usuario no existe, devolver un error 404
     if (!$user) {
         return response()->json(['message' => 'Usuario no encontrado'], 404);
     }
 
-    // Validar los datos de entrada
     $request->validate([
-        'name' => 'sometimes|string|max:255', // "sometimes" permite que el campo sea opcional
-        'email' => 'sometimes|email|unique:users,email,' . $id, // Validar email único, excepto para el usuario actual
-        'password' => 'sometimes|min:6', // "sometimes" permite que el campo sea opcional
+        'name' => 'sometimes|string|max:255',
+        'email' => 'sometimes|email|unique:users,email,' . $id,
+        'password' => 'sometimes|min:6',
     ]);
 
-    // Actualizar los campos proporcionados
     if ($request->has('name')) {
         $user->name = $request->name;
     }
@@ -86,14 +82,13 @@ public function update(Request $request, $id)
         $user->email = $request->email;
     }
     if ($request->has('password')) {
-        $user->password = Hash::make($request->password); // Hashear la contraseña
+        $user->password = Hash::make($request->password);
     }
 
-    // Guardar los cambios en la base de datos
     $user->save();
 
-    // Devolver una respuesta JSON con el usuario actualizado
-    return response()->json(['message' => 'Usuario actualizado correctamente', 'user' => $user], 200);
+    // Redirigir a la página de ajustes con un mensaje de éxito
+    return redirect()->route('settings')->with('success', 'Datos actualizados correctamente.');
 }
 
 public function destroy($id)
@@ -110,6 +105,6 @@ public function destroy($id)
     $user->delete();
 
     // Devolver una respuesta JSON indicando que el usuario fue eliminado
-    return response()->json(['message' => 'Usuario eliminado correctamente'], 200);
+    return redirect()->route('welcome')->with('success', 'Cuenta eliminada correctamente.');
 }
 }

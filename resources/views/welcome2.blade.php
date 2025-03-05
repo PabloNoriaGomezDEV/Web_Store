@@ -6,7 +6,7 @@
     <title>Quantium</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -31,7 +31,7 @@
                     <li><a href="#" class="text-decoration-none text-danger">Ofertas</a></li>
                 </ul>
             </div>
-            
+
             <div id="logoContainer" class="position-absolute start-50 top-50 translate-middle">
                 <img src="images/logo.png" alt="Logo" class="invert">
             </div>
@@ -39,7 +39,7 @@
             <div class="d-flex align-items-center">
                 @auth
                     <div class="d-flex align-items-center">
-                        <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1739971314/gznjtlxxi85egaud6nn2.png" 
+                        <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1739971314/gznjtlxxi85egaud6nn2.png"
                              alt="User Icon" class="rounded-circle" width="25" height="25">
                         <span class="ms-2 text-white">Bienvenido, {{ Auth::user()->name }}</span>
                         <form action="{{ route('logout') }}" method="POST" class="ms-3">
@@ -56,7 +56,7 @@
         <div class="row g-0">
             <div class="col-md-6 position-relative">
                 <a href="#">
-                    <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1740163190/xzbnebsbphonab9ivpza.png" 
+                    <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1740163190/xzbnebsbphonab9ivpza.png"
                          alt="mujer" class="img-fluid vh-100 w-100 object-fit-cover">
                     <div class="position-absolute top-50 start-50 translate-middle text-white fw-bold fs-1 text-uppercase">
                         Mujer
@@ -65,7 +65,7 @@
             </div>
             <div class="col-md-6 position-relative">
                 <a href="#">
-                    <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1740163151/muhu5lxkws3tl4u3rr7u.png" 
+                    <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1740163151/muhu5lxkws3tl4u3rr7u.png"
                          alt="hombre" class="img-fluid vh-100 w-100 object-fit-cover">
                     <div class="position-absolute top-50 start-50 translate-middle text-white fw-bold fs-1 text-uppercase">
                         Hombre
@@ -74,7 +74,7 @@
             </div>
         </div>
     </section>
-    
+
     <footer class="bg-white text-secondary text-center py-4 mt-auto">
         <div class="container">
             <div class="row">
@@ -89,6 +89,7 @@
                 </div>
                 <div class="col-md-4">
                     <p>&copy; 2025 Quantium. Todos los derechos reservados.</p>
+                    <a href="{{ route('settings') }}" class="btn btn-link">Ajustes de Usuario</a>
                 </div>
                 <div class="col-md-4 text-end pe-2">
                     <img src="images/logo.png" alt="Logo" width="100">

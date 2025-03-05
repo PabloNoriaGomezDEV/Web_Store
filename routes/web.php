@@ -27,3 +27,13 @@ Route::get('/welcome2', function () {
 // Ruta para logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// Ruta para mostrar la página de ajustes
+Route::get('/settings', function () {
+    return view('auth.settings');
+})->middleware('auth')->name('settings');
+
+// Ruta para actualizar un usuario (PATCH)
+Route::patch('/users/{id}', [AuthController::class, 'update'])->middleware('auth')->name('users.update');
+
+// Ruta para eliminar un usuario (DELETE)
+Route::delete('/users/{id}', [AuthController::class, 'destroy'])->middleware('auth')->name('users.destroy');
