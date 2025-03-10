@@ -52,7 +52,7 @@
     <section class="container-fluid p-0">
         <div class="row g-0">
             <div class="col-md-6 position-relative">
-                <a href="#">
+                <a href="{{ route('woman') }}">
                     <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1740163190/xzbnebsbphonab9ivpza.png"
                          alt="mujer" class="img-fluid vh-100 w-100 object-fit-cover">
                     <div class="position-absolute top-50 start-50 translate-middle text-white fw-bold fs-1 text-uppercase">
@@ -61,7 +61,7 @@
                 </a>
             </div>
             <div class="col-md-6 position-relative">
-                <a href="#">
+                <a href="{{ route('man') }}">
                     <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1740163151/muhu5lxkws3tl4u3rr7u.png"
                          alt="hombre" class="img-fluid vh-100 w-100 object-fit-cover">
                     <div class="position-absolute top-50 start-50 translate-middle text-white fw-bold fs-1 text-uppercase">
@@ -73,23 +73,37 @@
     </section>
 
     <footer class="bg-white text-secondary text-center py-4 mt-auto">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 text-start ps-2">
+        <div class="container-fluid px-3">
+            <div class="row justify-content-end align-items-center">
+                <div class="col-12 col-md-6 text-md-end text-center">
+                    <div class="map-container mb-3">
+                        <iframe
+                            class="w-100 w-md-70"
+                            height="200"
+                            style="border:0; border-radius:10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2799194744!2d-74.25987594871906!3d40.6976700636988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c250b20f1c64a3%3A0x4b4f5e2a6b6d6f6!2sNew%20York%2C%20EE.%20UU.!5e0!3m2!1ses!2s!4v1645481202864!5m2!1ses!2s">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center text-center text-md-start">
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
                     <p class="fw-bold">¡Síguenos!</p>
-                    <div class="d-flex gap-4">
+                    <div class="d-flex justify-content-center justify-content-md-start gap-3">
                         <a href="#" class="text-secondary"><i class="bi bi-instagram"></i></a>
                         <a href="#" class="text-secondary"><i class="bi bi-github"></i></a>
                         <a href="#" class="text-secondary"><i class="bi bi-youtube"></i></a>
                         <a href="#" class="text-secondary"><i class="bi bi-tiktok"></i></a>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <p>&copy; 2025 Quantium. Todos los derechos reservados.</p>
-                    <a href="{{ route('ubicacion') }}" class="btn btn-primary">Ver Ubicación de la Tienda</a>
-                </div>
-                <div class="col-md-4 text-end pe-2">
+                <div class="col-12 col-md-4 mb-3 mb-md-0 text-center">
                     <img src="images/logo.png" alt="Logo" width="100">
+                </div>
+                <div class="col-12 col-md-4 text-md-end">
+                    <p>&copy; 2025 Quantium. Todos los derechos reservados.</p>
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\WomanController;
 
 // Página principal
 use Illuminate\Support\Facades\Auth;
@@ -41,3 +42,11 @@ Route::delete('/users/{id}', [AuthController::class, 'destroy'])->middleware('au
 Route::get('/ubicacion', function () {
     return view('ubicacion');
 })->name('ubicacion');
+
+//ruta para la pagina de hombre
+Route::get('/man', function () {
+    return view('man');
+})->name('man');
+
+// Ruta para la página de mujer
+Route::get('/woman', [WomanController::class, 'index'])->name('woman');

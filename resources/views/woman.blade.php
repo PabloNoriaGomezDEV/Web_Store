@@ -3,14 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantium</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <title>Ropa Mujer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #4a5232;
+            color: white;
+        }
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
 </head>
-<body class="d-flex flex-column min-vh-100">
-
+<body>
     <header class="position-absolute top-0 start-0 w-100 bg-transparent z-3">
         <div class="container-fluid d-flex justify-content-between align-items-center py-2 position-relative">
             <!-- Botón de menú -->
@@ -79,98 +92,29 @@
         </div>
     </header>
 
-<!-- Sección Principal -->
-<section class="container-fluid p-0">
-    <div class="row g-0">
-        <div class="col-md-6 position-relative">
-            <a href="{{ route('woman') }}">
-                <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1740163190/xzbnebsbphonab9ivpza.png"
-                     alt="mujer" class="img-fluid vh-100 w-100 object-fit-cover">
-                <div class="position-absolute top-50 start-50 translate-middle text-white fw-bold fs-1 text-uppercase">
-                    Mujer
-                </div>
-            </a>
+    <div class="container mt-5 pt-5">
+        <h2 class="text-center mb-4">Ropa Mujer</h2>
+        <div class="d-flex justify-content-center mb-3">
+            <a href="#" class="text-white mx-2">Ver Todo</a>
+            <a href="#" class="text-white mx-2">Camisetas</a>
+            <a href="#" class="text-white mx-2">Sudaderas</a>
+            <a href="#" class="text-white mx-2">Pantalones</a>
+            <a href="#" class="text-white mx-2">Abrigos</a>
         </div>
-        <div class="col-md-6 position-relative">
-            <a href="{{ route('man') }}">
-                <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1740163151/muhu5lxkws3tl4u3rr7u.png"
-                     alt="hombre" class="img-fluid vh-100 w-100 object-fit-cover">
-                <div class="position-absolute top-50 start-50 translate-middle text-white fw-bold fs-1 text-uppercase">
-                    Hombre
-                </div>
-            </a>
-        </div>
-    </div>
-</section>
 
-<footer class="bg-white text-secondary text-center py-4 mt-auto">
-    <div class="container-fluid px-3">
-        <div class="row justify-content-end align-items-center">
-            <div class="col-12 col-md-6 text-md-end text-center">
-                <div class="map-container mb-3">
-                    <iframe
-                        class="w-100 w-md-70"
-                        height="200"
-                        style="border:0; border-radius:10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);"
-                        loading="lazy"
-                        allowfullscreen
-                        referrerpolicy="no-referrer-when-downgrade"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2799194744!2d-74.25987594871906!3d40.6976700636988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c250b20f1c64a3%3A0x4b4f5e2a6b6d6f6!2sNew%20York%2C%20EE.%20UU.!5e0!3m2!1ses!2s!4v1645481202864!5m2!1ses!2s">
-                    </iframe>
+        <div class="row">
+            @foreach($productos as $producto)
+            <div class="col-md-3 mb-4">
+                <div class="product-card text-dark">
+                    <img src="{{ $producto->imagen }}" class="img-fluid" alt="{{ $producto->nombre }}">
+                    <h5 class="mt-2">{{ $producto->nombre }}</h5>
+                    <p>{{ $producto->precio }} €</p>
                 </div>
             </div>
-        </div>
-        <div class="row align-items-center text-center text-md-start">
-            <div class="col-12 col-md-4 mb-3 mb-md-0">
-                <p class="fw-bold">¡Síguenos!</p>
-                <div class="d-flex justify-content-center justify-content-md-start gap-3">
-                    <a href="#" class="text-secondary"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="text-secondary"><i class="bi bi-github"></i></a>
-                    <a href="#" class="text-secondary"><i class="bi bi-youtube"></i></a>
-                    <a href="#" class="text-secondary"><i class="bi bi-tiktok"></i></a>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mb-3 mb-md-0 text-center">
-                <img src="images/logo.png" alt="Logo" width="100">
-            </div>
-            <div class="col-12 col-md-4 text-md-end">
-                <p>&copy; 2025 Quantium. Todos los derechos reservados.</p>
-            </div>
+            @endforeach
         </div>
     </div>
-</footer>
 
-
-
-
-
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Script para el Desplegable -->
-<script>
-        document.getElementById("menuButton").addEventListener("click", function () {
-        document.getElementById("menuDropdown").classList.toggle("d-none");
-    });
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const dropdownBtn = document.getElementById("userDropdownBtn");
-        const dropdownMenu = document.getElementById("userDropdown");
-
-        dropdownBtn.addEventListener("click", function(event) {
-            event.preventDefault();
-            dropdownMenu.classList.toggle("d-none");
-        });
-
-        // Cerrar el menú si se hace clic fuera
-        document.addEventListener("click", function(event) {
-            if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                dropdownMenu.classList.add("d-none");
-            }
-        });
-    });
-</script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

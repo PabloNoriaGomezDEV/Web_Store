@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('color');
             $table->decimal('precio', 10, 2);
             $table->integer('stock');
+            $table->string('imagen');
+            $table->Enum('genero', ['Hombre', 'Mujer']);
+            $table->string('numero');
         });
     }
 
