@@ -13,7 +13,6 @@
 
     <header class="position-absolute top-0 start-0 w-100 bg-transparent z-3">
         <div class="container-fluid d-flex justify-content-between align-items-center py-2 position-relative">
-            <!-- Botón de menú -->
             <button id="menuButton" class="border-0 bg-transparent fs-3 text-white">≡</button>
             <div id="menuDropdown" class="d-none position-absolute bg-white border rounded shadow p-3"
                  style="top: 40px; left: 0; z-index: 1050;">
@@ -33,31 +32,25 @@
                     <li><a href="#" class="text-decoration-none text-danger">Ofertas</a></li>
                 </ul>
             </div>
-
-            <!-- Logo -->
             <div id="logoContainer" class="position-absolute start-50 top-50 translate-middle">
                 <a href="{{ route('welcome2') }}">
                     <img src="{{ asset('images/logo.png') }}" alt="Logo" class="invert">
                 </a>
             </div>
 
-            <!-- Controles de usuario -->
             <div class="d-flex align-items-center gap-3">
-                <!-- Barra de búsqueda -->
                 <div class="position-relative">
                     <input type="text" class="ps-4 form-control rounded-pill bg-transparent text-white border-white"
                            placeholder="Buscar">
                     <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-2 text-white"></i>
                 </div>
 
-                <!-- Botón de Usuario con Menú Desplegable -->
                 <div class="position-relative">
                     <a href="#" id="userDropdownBtn" class="d-flex align-items-center text-decoration-none">
                         <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1739971314/gznjtlxxi85egaud6nn2.png"
                              alt="User Icon" class="rounded-circle" width="25" height="25">
                     </a>
 
-                    <!-- Menú Desplegable de Usuario -->
                     <div id="userDropdown" class="position-absolute end-0 bg-white text-dark p-3 rounded shadow-lg d-none"
                          style="width: 220px; top: 40px; z-index: 1050;">
                         <p class="mb-2 fw-bold">Bienvenido, {{ Auth::user()->name }}</p>
@@ -70,7 +63,6 @@
                     </div>
                 </div>
 
-                <!-- Carrito de compras -->
                 <a href="#" class="d-flex align-items-center">
                     <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1740086514/mce5ls7dlxyomtongzqc.png"
                          alt="Shopping Bag" width="40" height="35">
@@ -79,7 +71,6 @@
         </div>
     </header>
 
-<!-- Sección Principal -->
 <section class="container-fluid p-0">
     <div class="row g-0">
         <div class="col-md-6 position-relative">
@@ -106,11 +97,10 @@
 <footer class="bg-white text-secondary text-center py-4 mt-auto">
     <div class="container-fluid px-3">
         <div class="row justify-content-end align-items-center">
-            <div class="col-12 col-md-6 text-md-end text-center">
+            <div class="col-12 text-center">
                 <div class="map-container mb-3">
                     <iframe
-                        class="w-100 w-md-70"
-                        height="200"
+                        width="500" height="200"
                         style="border:0; border-radius:10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);"
                         loading="lazy"
                         allowfullscreen
@@ -120,7 +110,8 @@
                 </div>
             </div>
         </div>
-        <div class="row align-items-center text-center text-md-start">
+    </div>
+        <div class="row align-items-center text-center text-md-start ms-3 me-3">
             <div class="col-12 col-md-4 mb-3 mb-md-0">
                 <p class="fw-bold">¡Síguenos!</p>
                 <div class="d-flex justify-content-center justify-content-md-start gap-3">
@@ -140,14 +131,8 @@
     </div>
 </footer>
 
-
-
-
-
-<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Script para el Desplegable -->
 <script>
         document.getElementById("menuButton").addEventListener("click", function () {
         document.getElementById("menuDropdown").classList.toggle("d-none");
@@ -162,7 +147,6 @@
             dropdownMenu.classList.toggle("d-none");
         });
 
-        // Cerrar el menú si se hace clic fuera
         document.addEventListener("click", function(event) {
             if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
                 dropdownMenu.classList.add("d-none");

@@ -4,41 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ropa Mujer</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <style>
         body {
             background-color: #4a5232;
             color: white;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            width: 100%;
         }
+
         .product-card {
-            background-color: #fff;
+            background-color: #e0e0e0;
             border-radius: 8px;
-            padding: 15px;
+            padding: 5px;
             text-align: center;
+            height: 100%;
+            max-width: 350px;
+            margin: 0 auto;
         }
         .product-card img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
+            
+        }
+        .btn-add {
+            background-color: #a6a6a6;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            width: 45%;
+        }
+        .btn-add:hover {
+            background-color: #8c8c8c;
+        }
+
+        img, iframe {
+        max-width: 100%;
+        height: auto;
         }
     </style>
 </head>
 <body>
-    <header class="position-absolute top-0 start-0 w-100 bg-transparent z-3">
+    <header class="position-absolute top-0 start-0 w-100 bg-gray z-3">
         <div class="container-fluid d-flex justify-content-between align-items-center py-2 position-relative">
-            <!-- Botón de menú -->
             <button id="menuButton" class="border-0 bg-transparent fs-3 text-white">≡</button>
             <div id="menuDropdown" class="d-none position-absolute bg-white border rounded shadow p-3"
                  style="top: 40px; left: 0; z-index: 1050;">
                  <ul class="list-unstyled mb-0">
-                    <li class="fw-bold mb-2">HOMBRE</li>
+                    <li class="fw-bold mb-2 text-black">HOMBRE</li>
                     <li class="mb-2"><a href="{{ route('man') }}" class="text-decoration-none text-dark">Ropa</a></li>
                     <li class="mb-2"><a href="{{ route('man') }}" class="text-decoration-none text-dark">Accesorios</a></li>
                     <li class="mb-2"><a href="{{ route('man') }}" class="text-decoration-none text-dark">Calzado</a></li>
                     <li class="mb-2"><a href="{{ route('man') }}" class="text-decoration-none text-dark">Colección</a></li>
                     <li><a href="{{ route('man') }}" class="text-decoration-none text-danger">Ofertas</a></li>
                     <br>
-                    <li class="fw-bold mb-2">MUJER</li>
+                    <li class="fw-bold mb-2 text-black">MUJER</li>
                     <li class="mb-2"><a href="{{ route('woman') }}" class="text-decoration-none text-dark">Ropa</a></li>
                     <li class="mb-2"><a href="{{ route('woman') }}" class="text-decoration-none text-dark">Accesorios</a></li>
                     <li class="mb-2"><a href="{{ route('woman') }}" class="text-decoration-none text-dark">Calzado</a></li>
@@ -47,30 +75,25 @@
                 </ul>
             </div>
 
-            <!-- Logo -->
             <div id="logoContainer" class="position-absolute start-50 top-50 translate-middle">
                 <a href="{{ route('welcome2') }}">
                     <img src="{{ asset('images/logo.png') }}" alt="Logo" class="invert">
                 </a>
             </div>
 
-            <!-- Controles de usuario -->
             <div class="d-flex align-items-center gap-3">
-                <!-- Barra de búsqueda -->
                 <div class="position-relative">
                     <input type="text" class="ps-4 form-control rounded-pill bg-transparent text-white border-white"
                            placeholder="Buscar">
                     <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-2 text-white"></i>
                 </div>
 
-                <!-- Botón de Usuario con Menú Desplegable -->
                 <div class="position-relative">
                     <a href="#" id="userDropdownBtn" class="d-flex align-items-center text-decoration-none">
                         <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1739971314/gznjtlxxi85egaud6nn2.png"
                              alt="User Icon" class="rounded-circle" width="25" height="25">
                     </a>
 
-                    <!-- Menú Desplegable de Usuario -->
                     <div id="userDropdown" class="position-absolute end-0 bg-white text-dark p-3 rounded shadow-lg d-none"
                          style="width: 220px; top: 40px; z-index: 1050;">
                         <p class="mb-2 fw-bold">Bienvenido, {{ Auth::user()->name }}</p>
@@ -83,7 +106,6 @@
                     </div>
                 </div>
 
-                <!-- Carrito de compras -->
                 <a href="#" class="d-flex align-items-center">
                     <img src="https://res.cloudinary.com/di069qlwi/image/upload/v1740086514/mce5ls7dlxyomtongzqc.png"
                          alt="Shopping Bag" width="40" height="35">
@@ -92,29 +114,90 @@
         </div>
     </header>
 
-    <div class="container mt-5 pt-5">
-        <h2 class="text-center mb-4">Ropa Mujer</h2>
-        <div class="d-flex justify-content-center mb-3">
-            <a href="#" class="text-white mx-2">Ver Todo</a>
-            <a href="#" class="text-white mx-2">Camisetas</a>
-            <a href="#" class="text-white mx-2">Sudaderas</a>
-            <a href="#" class="text-white mx-2">Pantalones</a>
-            <a href="#" class="text-white mx-2">Abrigos</a>
-        </div>
-
-        <div class="row">
-            @foreach($productos as $producto)
-            <div class="col-md-3 mb-4">
-                <div class="product-card text-dark">
-                    <img src="{{ $producto->imagen }}" class="img-fluid" alt="{{ $producto->nombre }}">
-                    <h5 class="mt-2">{{ $producto->nombre }}</h5>
-                    <p>{{ $producto->precio }} €</p>
-                </div>
+    <div class="container-fluid mt-5 pt-5">
+        <h2 class="text-start mb-4 ms-4">Ropa Mujer</h2>
+            <div class="d-flex justify-content-start mb-5 ms-4">
+                <a href="#" class="text-white mx-2">Ver Todo</a>
+                <a href="#" class="text-white mx-2">Camisetas</a>
+                <a href="#" class="text-white mx-2">Sudaderas</a>
+                <a href="#" class="text-white mx-2">Pantalones</a>
+                <a href="#" class="text-white mx-2">Abrigos</a>
             </div>
-            @endforeach
-        </div>
     </div>
 
+    <div class="row g-4">
+    @foreach($productos as $producto)
+    <div class="col-md-3 mb-3">
+        <div class="product-card text-dark">
+            <img src="{{ $producto->imagen }}" class="img-fluid" alt="{{ $producto->nombre }}">
+            <h5 class="mt-2">{{ $producto->nombre }}</h5>
+            <p>{{ $producto->precio }} €</p>
+            <button class="btn-add">Añadir al carrito</button>
+        </div>
+    </div>
+    @endforeach
+</div>
+
+<footer class="bg-white text-secondary text-center py-4 mt-auto">
+    <div class="container-fluid px-3">
+        <div class="row justify-content-end align-items-center">
+            <div class="col-12 text-center">
+                <div class="map-container mb-3">
+                    <iframe
+                        width="500" height="200"
+                        style="border:0; border-radius:10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);"
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2799194744!2d-74.25987594871906!3d40.6976700636988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c250b20f1c64a3%3A0x4b4f5e2a6b6d6f6!2sNew%20York%2C%20EE.%20UU.!5e0!3m2!1ses!2s!4v1645481202864!5m2!1ses!2s">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="row align-items-center text-center text-md-start ms-3 me-3">
+            <div class="col-12 col-md-4 mb-3 mb-md-0">
+                <p class="fw-bold">¡Síguenos!</p>
+                <div class="d-flex justify-content-center justify-content-md-start gap-3">
+                    <a href="#" class="text-secondary"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-secondary"><i class="bi bi-github"></i></a>
+                    <a href="#" class="text-secondary"><i class="bi bi-youtube"></i></a>
+                    <a href="#" class="text-secondary"><i class="bi bi-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3 mb-md-0 text-center">
+                <img src="images/logo.png" alt="Logo" width="100">
+            </div>
+            <div class="col-12 col-md-4 text-md-end">
+                <p>&copy; 2025 Quantium. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById("menuButton").addEventListener("click", function () {
+        document.getElementById("menuDropdown").classList.toggle("d-none");
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const dropdownBtn = document.getElementById("userDropdownBtn");
+        const dropdownMenu = document.getElementById("userDropdown");
+
+        dropdownBtn.addEventListener("click", function(event) {
+            event.preventDefault();
+            dropdownMenu.classList.toggle("d-none");
+        });
+
+        document.addEventListener("click", function(event) {
+            if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.add("d-none");
+            }
+        });
+    });
+</script>
 </body>
 </html>
+

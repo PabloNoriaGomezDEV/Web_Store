@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\WomanController;
+use App\Http\Controllers\ManController;
 
 // Página principal
 use Illuminate\Support\Facades\Auth;
@@ -43,10 +44,8 @@ Route::get('/ubicacion', function () {
     return view('ubicacion');
 })->name('ubicacion');
 
-//ruta para la pagina de hombre
-Route::get('/man', function () {
-    return view('man');
-})->name('man');
+// Ruta para la página de hombre
+Route::get('/man', [ManController::class, 'index'])->name('man');
 
 // Ruta para la página de mujer
 Route::get('/woman', [WomanController::class, 'index'])->name('woman');
